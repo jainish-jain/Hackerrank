@@ -157,3 +157,93 @@ int max_of_four(int a,int b,int c,int d)
     int x,y; x=max(a,b); y=max(c,d);
     return max(x,y); 
  }
+
+
+int main() { 
+    int a,b,c,d,p;
+
+    cin>>a>>b>>c>>d;
+
+    p=((max(a,b)>max(c,d))?max(a,b):max(c,d));  
+    cout<<p;
+    return 0;
+}
+
+//Pointer
+
+#include <stdio.h>
+void update(int *a,int *b) {
+    // Complete this function 
+    int sum=*a+*b;
+    int diff=*a-*b>0?*a-*b:-(*a-*b);
+    *a=sum;
+    *b=diff;
+}
+
+int main() {
+    int a, b;
+    int *pa = &a, *pb = &b;
+    
+    scanf("%d %d", &a, &b);
+    update(pa, pb);
+    printf("%d\n%d", a, b);
+
+    return 0;
+}
+
+
+
+//Arrays Introduction
+
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() 
+{   
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){cin>>a[i];} 
+    for(n;n>0;n--){cout<<a[n-1]<<" ";}
+    return 0; 
+}
+
+
+//Variable Sized Arrays
+//using vector
+
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n,q;
+    cin>>n>>q;
+    vector<vector <int>> narr;
+    while (n--){
+        int j;
+        vector<int> arr;
+        cin >>j;
+        while (j--){
+            int k;
+            cin>>k;
+            arr.push_back(k);
+        }
+        narr.push_back(arr);        
+    }
+    while(q--){
+        int w,e;
+        cin>>w>>e;
+        cout<<narr[w][e]<<endl;
+    }
+
+    return 0;
+}
